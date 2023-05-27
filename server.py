@@ -6,7 +6,7 @@ from ldclient.config import Config
 import json
 
 # Paste your SDK key below
-ldclient.set_config(Config("sdk-fa1d6ca6-115c-45d3-b7ad-c503c52c6058"))
+ldclient.set_config(Config("sdk-key"))
 client = ldclient.get()
 
 app = Flask(__name__, static_folder='public', template_folder='views')
