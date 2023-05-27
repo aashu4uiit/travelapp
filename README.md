@@ -9,8 +9,8 @@ Application Setup and Installation:
 2. Go into _travel_ directory, where you cloned the repository
 3. Edit server.py, and update SDK key value in row 91: _ldclient.set_config(Config(**sdk-key**))_
 4. Update the name of the feature flag in row 29: _is_tier_3_enabled = client.variation(**flag-name**, user, False)_
-5. Run Python and Launch server on Linux based systems: _pip3 install -r requirements && python3 server.py_
-6. Run Python and Launch server on Windows based systems: _pip3 install -r requirements ; python3 server.py_
+5. Run Python and Launch server on Linux based systems: _pip install -r requirements && python server.py_
+6. Run Python and Launch server on Windows based systems: _pip install -r requirements ; python server.py_
 7. Open up browser and browse to http://127.0.0.1:5000/
 8. Update _user.json_ with new values e.g. change country to "Australia" and refresh browser to see 3 clases of tickets
 9. Update _user.json_ with new values e.g. change country to "China" and refresh browser to see 2 clases of tickets
