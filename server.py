@@ -1,0 +1,34 @@
+# TODO: Add the LaunchDarkly SDK to this so we can flag new features
+import os
+from flask import Flask, render_template
+import ldclient
+from ldclient.config import Config
+import json
+
+# Paste your SDK key below
+ldclient.set_config(Config("sdk-fa1d6ca6-115c-45d3-b7ad-c503c52c6058"))
+client = ldclient.get()
+
+app = Flask(__name__, static_folder='public', template_folder='views')
+    
+@app.route('/')
+def pricing():
+    """Displays the pricing page."""
+
+    # Since this page doesn't require a logged in user,
+    # tell LaunchDarkly that this is an anonymous user.
+    f = open('user.json')
+    data = json.load(f)
+
+    user = {
+      "key": data['key'],
+      "anonymous": False,
+      "country": data['country'],
+      "firstName": data['firstName']
+    }
+    is_tier_3_enabled = client.variation('test-flag', user, False) #update feature flag name here
+    print("Flag: " + str(is_tier_3_enabled))
+    return render_template('pricing.html', is_tier_3_enabled=is_tier_3_enabled)
+  
+if __name__ == '__main__':
+    app.run()
