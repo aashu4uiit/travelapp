@@ -7,7 +7,7 @@ Requirements before getting started with this Lab
 Application Setup and Installation:
 1. Clone repository: _git clone https://github.com/rmalik25/travel.git_
 2. Go into _travel_ directory, where you cloned the repository
-3. Edit server.py, and update SDK key value in row 91: _ldclient.set_config(Config(**sdk-key**))_
+3. Edit server.py, and update SDK key value in row 9: _ldclient.set_config(Config(**sdk-key**))_
 4. Update the name of the feature flag in row 29: _is_tier_3_enabled = client.variation(**flag-name**, user, False)_
 5. Run Python and Launch server on Linux based systems: _pip install -r requirements && python server.py_
 6. Run Python and Launch server on Windows based systems: _pip install -r requirements ; python server.py_
